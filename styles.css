@@ -1,3 +1,68 @@
+@import "reset.css";
+@import "variables.css";
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
 body {
-  background-color: #f3f9fc;
+  height: 100vh;
+  background-color: var(--backgroundColor);
+  font-family: "Jua", sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+}
+.hidden {
+  display: none;
+}
+button {
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  color: var(--mainColor);
+}
+h1 {
+  color: var(--mainColor);
+  grid-column: 2 / 3;
+  font-size: 50px;
+  justify-self: center;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+input {
+  background: none;
+  border: 3.2px solid var(--mainColor);
+  border-radius: 10px;
+}
+.grade input,
+.class input {
+  height: 45px;
+  width: 45px;
+  display: flex;
+  align-self: start;
+  font-size: 35px;
+}
+.plant_pot {
+  width: 100px;
+  height: 100px;
+}
+.btns {
+  grid-column: 1 / 2;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+}
+button {
+  margin: 10px;
+}
+.tables {
+  grid-column: 2 / 3;
+}
+.plant {
+  grid-column: 3 / 4;
+  align-self: end;
 }

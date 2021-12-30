@@ -6,7 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Attendance Book</title>
     <link href="styles.css" rel="stylesheet" />
-    <link href="icon.png" rel="shortcut icon" />
+    <link href="img/icon.png" rel="shortcut icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.14.0/css/all.min.css"
+    />
   </head>
-  <body></body>
+  <body>
+    <h1>
+      <date>날짜</date>
+      <form class="grade">
+        <input type="number" required />
+      </form>
+      <span class="hidden grade_span"></span>
+      학년
+      <form class="class">
+        <input type="number" required />
+      </form>
+      <span class="hidden class_span"></span>
+      반
+    </h1>
+
+    <div class="btns">
+      <button class="btns_>">
+        <i class="fas fa-chevron-circle-right fa-2x"></i>
+      </button>
+      <button class="btns_modi">
+        <i class="fas fa-border-all fa-2x"></i>
+      </button>
+      <button class="btns_?"><i class="fas fa-question fa-2x"></i></button>
+    </div>
+    <div class="tables"></div>
+    <div class="plant">
+      <img class="plant_pot" src="img/화분.png"></a>
+    </div>
+    <script src="js/title.js"></script>
+  </body>
 </html>
