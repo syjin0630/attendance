@@ -36,7 +36,16 @@ function getDate() {
 
   dateBox.innerHTML = `${year}.${month}.${dateNumber}.${day}❤️ `;
 }
+getDate();
+setInterval(getDate, 86400000);
 
+function seeGradeForm() {
+  localStorage.removeItem(GRADE_KEY);
+  location.reload();
+  gradeForm.classList.remove(HIDDEN_CLASSNAME);
+  gradeInput.classList.remove(HIDDEN_CLASSNAME);
+  gradeSpan.classList.add(HIDDEN_CLASSNAME);
+}
 function gradePush() {
   const grade = gradeInput.value;
   gradeInput.value = "";
@@ -49,6 +58,13 @@ function paintingGrade(grade) {
   gradeInput.classList.add(HIDDEN_CLASSNAME);
   gradeSpan.innerText = grade;
   gradeSpan.classList.remove(HIDDEN_CLASSNAME);
+}
+function seeClassForm() {
+  localStorage.removeItem(CLASS_KEY);
+  location.reload();
+  classForm.classList.remove(HIDDEN_CLASSNAME);
+  classInput.classList.remove(HIDDEN_CLASSNAME);
+  classSpan.classList.add(HIDDEN_CLASSNAME);
 }
 function classPush() {
   const class_n = classInput.value;
@@ -64,20 +80,20 @@ function paintingClass(class_n) {
   classSpan.innerText = `­ ${class_n}`;
   classSpan.classList.remove(HIDDEN_CLASSNAME);
 }
-getDate();
-setInterval(getDate, 86400000);
 
 const savedGradeNumner = localStorage.getItem(GRADE_KEY);
 const savedClassNumner = localStorage.getItem(CLASS_KEY);
 
 if (savedGradeNumner !== null) {
   paintingGrade(savedGradeNumner);
+  gradeSpan.addEventListener("click", seeGradeForm);
 } else {
   gradeForm.addEventListener("submit", gradePush);
 }
 
 if (savedClassNumner !== null) {
   paintingClass(savedClassNumner);
+  classSpan.addEventListener("click", seeClassForm);
 } else {
   classForm.addEventListener("submit", classPush);
 }
