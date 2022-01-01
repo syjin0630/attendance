@@ -7,7 +7,8 @@ body {
   background-color: var(--backgroundColor);
   font-family: "Jua", sans-serif;
   display: grid;
-  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-columns: 1fr 6fr 1fr;
+  grid-template-rows: 2fr 9fr 0.5fr;
 }
 .hidden {
   display: none;
@@ -20,6 +21,10 @@ button {
   border-radius: 25px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   color: var(--mainColor);
+  margin: 10px;
+}
+button:active {
+  transform: scale(0.9);
 }
 h1 {
   color: var(--mainColor);
@@ -50,19 +55,40 @@ input {
 }
 .btns {
   grid-column: 1 / 2;
+  grid-row: 2 / 4;
   height: 85vh;
   display: flex;
   flex-direction: column;
   justify-content: end;
-  align-items: center;
-}
-button {
+  align-items: start;
   margin: 10px;
 }
 .tables {
   grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 10px;
 }
+.table {
+  background-color: var(--lightGreen);
+  border-radius: 20px;
+}
+.redTable:hover {
+  opacity: 0.22;
+}
+.redTable {
+  background-color: var(--lightRed);
+}
+.greenTable {
+  background-color: var(--lightGreen);
+}
+
 .plant {
   grid-column: 3 / 4;
+  grid-row: 2 / 4;
   align-self: end;
+  justify-self: center;
+  margin: 10px;
 }
