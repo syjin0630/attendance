@@ -5,7 +5,7 @@
 body {
   height: 100vh;
   background-color: var(--backgroundColor);
-  font-family: "Jua", sans-serif;
+  font-family: var(--font);
   display: grid;
   grid-template-columns: 1fr 6fr 1fr;
   grid-template-rows: 2fr 9fr 0.5fr;
@@ -19,13 +19,14 @@ button {
   height: 50px;
   border: none;
   border-radius: 25px;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow);
   color: var(--mainColor);
   margin: 10px;
 }
 button:active {
   transform: scale(0.9);
 }
+
 h1 {
   color: var(--mainColor);
   grid-column: 2 / 3;
@@ -37,7 +38,7 @@ h1 {
   align-items: center;
 }
 input {
-  background: none;
+  background-color: white;
   border: 3.2px solid var(--mainColor);
   border-radius: 10px;
 }
@@ -74,15 +75,36 @@ input {
 .table {
   background-color: var(--lightGreen);
   border-radius: 20px;
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
 }
-.redTable:hover {
-  opacity: 0.22;
+.tableBtn {
+  width: 20px;
+  height: 20px;
+  justify-self: start;
+  align-self: end;
+  margin: 0px;
 }
 .redTable {
   background-color: var(--lightRed);
 }
 .greenTable {
   background-color: var(--lightGreen);
+}
+.studentIdInput {
+  width: 115px;
+  display: flex;
+  align-self: center;
+  background-color: var(--backgroundColor);
+  font-family: var(--font);
+  font-size: 20px;
+  border: none;
+  box-shadow: var(--shadow);
+  padding: 5px;
+}
+li {
+  margin: 5px;
 }
 
 .plant {
