@@ -39,7 +39,6 @@ function disappearOn() {
 
 function tableHidden() {
   if (disappear === true) {
-<<<<<<< HEAD
     table.classList.add(OPACITYTABLE_KEY);
     localStorage.setItem(OPACITYTABLE_KEY, OPACITYTABLE_KEY);
     table.classList.add(OPACITYTABLEMODI_KEY);
@@ -49,11 +48,6 @@ function tableHidden() {
     localStorage.removeItem(OPACITYTABLE_KEY);
     table.classList.remove(OPACITYTABLEMODI_KEY);
     localStorage.removeItem(OPACITYTABLEMODI_KEY);
-=======
-    table.style.opacity = "0";
-  } else {
-    table.style.opacity = "1";
->>>>>>> 8b81c99a5efd0c3d9689c3406d02ff27b1c73045
   }
 }
 
@@ -84,13 +78,9 @@ if (table.style.opacity == "0") {
 modiBtn.addEventListener("click", modiOn);
 
 const savedModiOnBtn = localStorage.getItem(MODI_KEY);
-<<<<<<< HEAD
 const savedtableButton = localStorage.getItem(TABLEBTUTTON_CLASS);
 const savedOpacityTable = localStorage.getItem(OPACITYTABLE_KEY);
 const savedOpacityTableModi = localStorage.getItem(OPACITYTABLEMODI_KEY);
-=======
-const savedtableButton = localStorage.getItem("tableButton_class");
->>>>>>> 8b81c99a5efd0c3d9689c3406d02ff27b1c73045
 
 if (savedModiOnBtn !== null) {
   modiBtn.classList.add(savedModiOnBtn);
@@ -99,20 +89,16 @@ if (savedModiOnBtn !== null) {
 if (savedtableButton !== null) {
   tableBtn.classList.add(savedtableButton);
 }
-<<<<<<< HEAD
 if (savedOpacityTable !== null) {
   table.classList.add(savedOpacityTable);
 }
 if (savedOpacityTableModi !== null) {
   table.classList.add(savedOpacityTableModi);
 }
-=======
->>>>>>> 8b81c99a5efd0c3d9689c3406d02ff27b1c73045
 if (modi === true) {
   tableBtn.classList.remove(TABLECOLORCHANGEBTN_KEY);
   const tableHiddenBtn = document.querySelector(".tableHiddenBtn");
   tableHiddenBtn.addEventListener("click", disappearOn);
-<<<<<<< HEAD
   const opacityTable = document.querySelector(".opacityTable");
   opacityTable.classList.add(OPACITYTABLEMODI_KEY);
   localStorage.setItem(OPACITYTABLEMODI_KEY, OPACITYTABLEMODI_KEY);
@@ -121,8 +107,6 @@ if (modi === false) {
   const opacityTable = document.querySelector(".opacityTable");
   table.classList.remove(OPACITYTABLEMODI_KEY);
   localStorage.removeItem(OPACITYTABLEMODI_KEY);
-=======
->>>>>>> 8b81c99a5efd0c3d9689c3406d02ff27b1c73045
 }
 
 function colorChange() {
