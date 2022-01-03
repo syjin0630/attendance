@@ -35,12 +35,10 @@ function disappearOn() {
 }
 
 function tableHidden() {
-  if (disappear !== true) {
+  if (disappear === true) {
     table.style.opacity = "0";
-    disappear = true;
   } else {
     table.style.opacity = "1";
-    disappear = false;
   }
 }
 
@@ -64,16 +62,15 @@ function modiBtnStyleChange() {
   }
 }
 
-if (modi === true) {
-  tableBtn.classList.remove(TABLECOLORCHANGEBTN_KEY);
-  const tableHiddenBtn = document.querySelector(".tableHiddenBtn");
-  tableHiddenBtn.addEventListener("click", disappearOn);
+if (table.style.opacity == "0") {
+  disappear = true;
 }
 
 modiBtn.addEventListener("click", modiOn);
 
 const savedModiOnBtn = localStorage.getItem(MODI_KEY);
 const savedtableButton = localStorage.getItem("tableButton_class");
+
 if (savedModiOnBtn !== null) {
   modiBtn.classList.add(savedModiOnBtn);
   modi = true;
@@ -81,8 +78,11 @@ if (savedModiOnBtn !== null) {
 if (savedtableButton !== null) {
   tableBtn.classList.add(savedtableButton);
 }
-
-console.log(modi);
+if (modi === true) {
+  tableBtn.classList.remove(TABLECOLORCHANGEBTN_KEY);
+  const tableHiddenBtn = document.querySelector(".tableHiddenBtn");
+  tableHiddenBtn.addEventListener("click", disappearOn);
+}
 
 function colorChange() {
   if (colorGreen !== true) {
