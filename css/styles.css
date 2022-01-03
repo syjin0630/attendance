@@ -118,3 +118,9 @@ li {
   background-color: var(--mainColor);
   color: var(--backgroundColor);
 }
+.opacityTable {
+  opacity: 0;
+}
+.opacityTableModi {
+  opacity: 0.22;
+}

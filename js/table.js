@@ -15,6 +15,9 @@ const TABLEHIDDENBTN_KEY = "tableHiddenBtn";
 const TABLECOLORCHANGEBTN_KEY = "tableColorChangeBtn";
 const MODIONBTN_KEY = "modiOnBtn";
 const MODI_KEY = "modi";
+const OPACITYTABLE_KEY = "opacityTable";
+const TABLEBTUTTON_CLASS = "tableButton_class";
+const OPACITYTABLEMODI_KEY = "opacityTableModi";
 
 function modiOn() {
   if (modi === false) {
@@ -35,12 +38,16 @@ function disappearOn() {
 }
 
 function tableHidden() {
-  if (disappear !== true) {
-    table.style.opacity = "0";
-    disappear = true;
+  if (disappear === true) {
+    table.classList.add(OPACITYTABLE_KEY);
+    localStorage.setItem(OPACITYTABLE_KEY, OPACITYTABLE_KEY);
+    table.classList.add(OPACITYTABLEMODI_KEY);
+    localStorage.setItem(OPACITYTABLEMODI_KEY, OPACITYTABLEMODI_KEY);
   } else {
-    table.style.opacity = "1";
-    disappear = false;
+    table.classList.remove(OPACITYTABLE_KEY);
+    localStorage.removeItem(OPACITYTABLE_KEY);
+    table.classList.remove(OPACITYTABLEMODI_KEY);
+    localStorage.removeItem(OPACITYTABLEMODI_KEY);
   }
 }
 
@@ -49,7 +56,7 @@ function modiBtnStyleChange() {
     modiBtn.classList.add(MODIONBTN_KEY);
     localStorage.setItem(MODI_KEY, MODIONBTN_KEY);
     tableBtn.classList.add(TABLEHIDDENBTN_KEY);
-    localStorage.setItem("tableButton_class", TABLEHIDDENBTN_KEY);
+    localStorage.setItem(TABLEBTUTTON_CLASS, TABLEHIDDENBTN_KEY);
     tableBtn.classList.remove(TABLECOLORCHANGEBTN_KEY);
     localStorage.removeItem(TABLECOLORCHANGEBTN_KEY);
     location.reload();
@@ -57,23 +64,24 @@ function modiBtnStyleChange() {
     modiBtn.classList.remove(MODIONBTN_KEY);
     localStorage.removeItem(MODI_KEY);
     tableBtn.classList.add(TABLECOLORCHANGEBTN_KEY);
-    localStorage.setItem("tableButton_class", TABLECOLORCHANGEBTN_KEY);
+    localStorage.setItem(TABLEBTUTTON_CLASS, TABLECOLORCHANGEBTN_KEY);
     tableBtn.classList.remove(TABLEHIDDENBTN_KEY);
     localStorage.removeItem(TABLEHIDDENBTN_KEY);
     location.reload();
   }
 }
 
-if (modi === true) {
-  tableBtn.classList.remove(TABLECOLORCHANGEBTN_KEY);
-  const tableHiddenBtn = document.querySelector(".tableHiddenBtn");
-  tableHiddenBtn.addEventListener("click", disappearOn);
+if (table.style.opacity == "0") {
+  disappear = true;
 }
 
 modiBtn.addEventListener("click", modiOn);
 
 const savedModiOnBtn = localStorage.getItem(MODI_KEY);
-const savedtableButton = localStorage.getItem("tableButton_class");
+const savedtableButton = localStorage.getItem(TABLEBTUTTON_CLASS);
+const savedOpacityTable = localStorage.getItem(OPACITYTABLE_KEY);
+const savedOpacityTableModi = localStorage.getItem(OPACITYTABLEMODI_KEY);
+
 if (savedModiOnBtn !== null) {
   modiBtn.classList.add(savedModiOnBtn);
   modi = true;
@@ -81,8 +89,25 @@ if (savedModiOnBtn !== null) {
 if (savedtableButton !== null) {
   tableBtn.classList.add(savedtableButton);
 }
-
-console.log(modi);
+if (savedOpacityTable !== null) {
+  table.classList.add(savedOpacityTable);
+}
+if (savedOpacityTableModi !== null) {
+  table.classList.add(savedOpacityTableModi);
+}
+if (modi === true) {
+  tableBtn.classList.remove(TABLECOLORCHANGEBTN_KEY);
+  const tableHiddenBtn = document.querySelector(".tableHiddenBtn");
+  tableHiddenBtn.addEventListener("click", disappearOn);
+  const opacityTable = document.querySelector(".opacityTable");
+  opacityTable.classList.add(OPACITYTABLEMODI_KEY);
+  localStorage.setItem(OPACITYTABLEMODI_KEY, OPACITYTABLEMODI_KEY);
+}
+if (modi === false) {
+  const opacityTable = document.querySelector(".opacityTable");
+  table.classList.remove(OPACITYTABLEMODI_KEY);
+  localStorage.removeItem(OPACITYTABLEMODI_KEY);
+}
 
 function colorChange() {
   if (colorGreen !== true) {
