@@ -79,7 +79,7 @@ input {
   padding: 10px;
   justify-content: space-between;
 }
-.tableBtn {
+.table > button {
   width: 20px;
   height: 20px;
   justify-self: start;
@@ -113,4 +113,8 @@ li {
   align-self: end;
   justify-self: center;
   margin: 10px;
+}
+.modiOnBtn {
+  background-color: var(--mainColor);
+  color: var(--backgroundColor);
 }

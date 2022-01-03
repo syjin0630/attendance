@@ -1,16 +1,88 @@
 const tablesBox = document.querySelector(".tables");
-const table = tablesBox.querySelector(".table");
-const tableBtn = table.querySelector(".tableBtn");
+const table = document.querySelector(".table");
+const tableBtn = document.querySelector(".table>button");
+
+const tableHiddenBtn = document.querySelector(".tableHiddenBtn");
 const modiBtn = document.querySelector(".modi");
 
 let disappear = false;
-let modiOn = false;
+let modi = false;
 let students = [];
 let colorGreen = true;
 const REDTABLE = "redTable";
 const STUDENTS_KEY = "students";
+const TABLEHIDDENBTN_KEY = "tableHiddenBtn";
+const TABLECOLORCHANGEBTN_KEY = "tableColorChangeBtn";
+const MODIONBTN_KEY = "modiOnBtn";
+const MODI_KEY = "modi";
 
-//modi 버튼 눌러진 상태에서 table 클릭하면 table 안 보이게 하기
+function modiOn() {
+  if (modi === false) {
+    modi = true;
+  } else {
+    modi = false;
+  }
+  modiBtnStyleChange();
+}
+
+function disappearOn() {
+  if (disappear === false) {
+    disappear = true;
+  } else {
+    disappear = false;
+  }
+  tableHidden();
+}
+
+function tableHidden() {
+  if (disappear !== true) {
+    table.style.opacity = "0";
+    disappear = true;
+  } else {
+    table.style.opacity = "1";
+    disappear = false;
+  }
+}
+
+function modiBtnStyleChange() {
+  if (modi === true) {
+    modiBtn.classList.add(MODIONBTN_KEY);
+    localStorage.setItem(MODI_KEY, MODIONBTN_KEY);
+    tableBtn.classList.add(TABLEHIDDENBTN_KEY);
+    localStorage.setItem("tableButton_class", TABLEHIDDENBTN_KEY);
+    tableBtn.classList.remove(TABLECOLORCHANGEBTN_KEY);
+    localStorage.removeItem(TABLECOLORCHANGEBTN_KEY);
+    location.reload();
+  } else {
+    modiBtn.classList.remove(MODIONBTN_KEY);
+    localStorage.removeItem(MODI_KEY);
+    tableBtn.classList.add(TABLECOLORCHANGEBTN_KEY);
+    localStorage.setItem("tableButton_class", TABLECOLORCHANGEBTN_KEY);
+    tableBtn.classList.remove(TABLEHIDDENBTN_KEY);
+    localStorage.removeItem(TABLEHIDDENBTN_KEY);
+    location.reload();
+  }
+}
+
+if (modi === true) {
+  tableBtn.classList.remove(TABLECOLORCHANGEBTN_KEY);
+  const tableHiddenBtn = document.querySelector(".tableHiddenBtn");
+  tableHiddenBtn.addEventListener("click", disappearOn);
+}
+
+modiBtn.addEventListener("click", modiOn);
+
+const savedModiOnBtn = localStorage.getItem(MODI_KEY);
+const savedtableButton = localStorage.getItem("tableButton_class");
+if (savedModiOnBtn !== null) {
+  modiBtn.classList.add(savedModiOnBtn);
+  modi = true;
+}
+if (savedtableButton !== null) {
+  tableBtn.classList.add(savedtableButton);
+}
+
+console.log(modi);
 
 function colorChange() {
   if (colorGreen !== true) {
@@ -116,4 +188,5 @@ if (savedStudents !== null) {
   parsedStudents.forEach(paintSpan);
 }
 
-tableBtn.addEventListener("click", colorChange);
+const tableColorChangeBtn = document.querySelector(".tableColorChangeBtn");
+tableColorChangeBtn.addEventListener("click", colorChange);
