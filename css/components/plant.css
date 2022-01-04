@@ -1,0 +1,12 @@
+.plant_pot {
+  width: 100px;
+  height: 100px;
+}
+
+.plant {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  align-self: end;
+  justify-self: center;
+  margin: 10px;
+}

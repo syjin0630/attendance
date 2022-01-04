@@ -1,0 +1,25 @@
+input {
+  background-color: white;
+  border: 3.2px solid var(--mainColor);
+  border-radius: 10px;
+  caret-color: var(--mainColor);
+}
+.studentIdInput {
+  width: 115px;
+  display: flex;
+  align-self: center;
+  background-color: var(--backgroundColor);
+  font-family: var(--font);
+  font-size: 20px;
+  border: none;
+  box-shadow: var(--shadow);
+  padding: 5px;
+}
+.grade input,
+.class input {
+  height: 45px;
+  width: 45px;
+  display: flex;
+  align-self: start;
+  font-size: 35px;
+}

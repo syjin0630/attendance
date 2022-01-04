@@ -1,0 +1,33 @@
+.tables {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 10px;
+}
+.table {
+  background-color: var(--lightGreen);
+  border-radius: 20px;
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  height: 74px;
+}
+
+.redTable {
+  background-color: var(--lightRed);
+}
+.greenTable {
+  background-color: var(--lightGreen);
+}
+
+li {
+  margin: 5px;
+}
+.opacityTable {
+  opacity: 0;
+}
+.opacityTableModi {
+  opacity: 0.22;
+}

@@ -1,0 +1,42 @@
+button {
+  background-color: white;
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 25px;
+  box-shadow: var(--shadow);
+  color: var(--mainColor);
+  margin: 10px;
+}
+button:active {
+  transform: scale(0.9);
+}
+.btns {
+  grid-column: 1 / 2;
+  grid-row: 1 / -1;
+  height: 97vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+  margin: 10px;
+}
+.btns_list {
+  transition: 0.88s ease-in-out;
+}
+.btns_list:hover {
+  width: 400px;
+  height: 545px;
+  color: white;
+}
+.modiOnBtn {
+  background-color: var(--mainColor);
+  color: var(--backgroundColor);
+}
+.table > button {
+  width: 20px;
+  height: 20px;
+  justify-self: start;
+  align-self: end;
+  margin: 0px;
+}

@@ -1,6 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
 @import "reset.css";
 @import "variables.css";
-@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+
+@import "components/no-mobile.css";
+@import "components/table.css";
+@import "components/button.css";
+@import "components/input.css";
+@import "components/plant.css";
 
 body {
   height: 100vh;
@@ -8,23 +15,10 @@ body {
   font-family: var(--font);
   display: grid;
   grid-template-columns: 1fr 6fr 1fr;
-  grid-template-rows: 2fr 9fr 0.5fr;
+  grid-template-rows: 2fr 9fr 1.5fr;
 }
 .hidden {
   display: none;
-}
-button {
-  background-color: white;
-  width: 50px;
-  height: 50px;
-  border: none;
-  border-radius: 25px;
-  box-shadow: var(--shadow);
-  color: var(--mainColor);
-  margin: 10px;
-}
-button:active {
-  transform: scale(0.9);
 }
 
 h1 {
@@ -36,91 +30,4 @@ h1 {
   display: flex;
   flex-direction: row;
   align-items: center;
-}
-input {
-  background-color: white;
-  border: 3.2px solid var(--mainColor);
-  border-radius: 10px;
-}
-.grade input,
-.class input {
-  height: 45px;
-  width: 45px;
-  display: flex;
-  align-self: start;
-  font-size: 35px;
-}
-.plant_pot {
-  width: 100px;
-  height: 100px;
-}
-.btns {
-  grid-column: 1 / 2;
-  grid-row: 2 / 4;
-  height: 85vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-  align-items: start;
-  margin: 10px;
-}
-.tables {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  gap: 10px;
-}
-.table {
-  background-color: var(--lightGreen);
-  border-radius: 20px;
-  display: flex;
-  padding: 10px;
-  justify-content: space-between;
-}
-.table > button {
-  width: 20px;
-  height: 20px;
-  justify-self: start;
-  align-self: end;
-  margin: 0px;
-}
-.redTable {
-  background-color: var(--lightRed);
-}
-.greenTable {
-  background-color: var(--lightGreen);
-}
-.studentIdInput {
-  width: 115px;
-  display: flex;
-  align-self: center;
-  background-color: var(--backgroundColor);
-  font-family: var(--font);
-  font-size: 20px;
-  border: none;
-  box-shadow: var(--shadow);
-  padding: 5px;
-}
-li {
-  margin: 5px;
-}
-
-.plant {
-  grid-column: 3 / 4;
-  grid-row: 2 / 4;
-  align-self: end;
-  justify-self: center;
-  margin: 10px;
-}
-.modiOnBtn {
-  background-color: var(--mainColor);
-  color: var(--backgroundColor);
-}
-.opacityTable {
-  opacity: 0;
-}
-.opacityTableModi {
-  opacity: 0.22;
 }
