@@ -104,7 +104,6 @@ if (modi === true) {
   localStorage.setItem(OPACITYTABLEMODI_KEY, OPACITYTABLEMODI_KEY);
 }
 if (modi === false) {
-  const opacityTable = document.querySelector(".opacityTable");
   table.classList.remove(OPACITYTABLEMODI_KEY);
   localStorage.removeItem(OPACITYTABLEMODI_KEY);
 }
